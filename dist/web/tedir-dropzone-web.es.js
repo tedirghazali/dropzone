@@ -4689,7 +4689,7 @@ function ensureRenderer() {
 const render = (...args) => {
   ensureRenderer().render(...args);
 };
-var _style_0 = ".dropZone[data-v-3d433c0e]{overflow-wrap:break-word;padding:.5rem;max-width:calc(100vw - .5rem);max-height:calc(100vh - .5rem)}.dropZone .dropZoneFile[data-v-3d433c0e]{position:absolute;width:0px;height:0px;overflow:hidden;clip:rect(1px,1px,1px,1px)}.dropZone .dropZoneWrap[data-v-3d433c0e]{border:3px dashed currentColor;box-shadow:-1px 5px 25px -9px #0003}.dropZone .dropZoneWrap .dropZoneLabel[data-v-3d433c0e]{display:grid;place-items:center;width:100%;height:100%;padding-top:1.5rem;padding-bottom:2.5rem;cursor:pointer}.dropZone .dropZoneWrap .dropZoneImage[data-v-3d433c0e]{pointer-events:none;color:currentColor}.dropZone .dropZoneWrap .dropZoneBody[data-v-3d433c0e]{text-align:center}.dropZone .dropZoneWrap .dropZoneBody p[data-v-3d433c0e],.dropZone .dropZoneWrap .dropZoneBody span[data-v-3d433c0e]{margin:0}.dropZone .dropZoneWrap .dropZoneBody .dropZoneTitle[data-v-3d433c0e]{color:#333}.dropZone .dropZoneWrap .dropZoneBody .dropZoneText[data-v-3d433c0e]{color:#737373}.dropZone .dropZoneWrap .dropZoneBody .button[data-v-3d433c0e]{background-color:transparent;display:inline-block;text-align:center;vertical-align:middle;pointer-events:none;font-size:1rem;line-height:1.5rem;font-weight:400;user-select:none;margin-top:1.25rem;border-radius:.35rem;color:currentColor;border:2px solid currentColor;padding:.375rem .75rem}.mt-30px[data-v-3d433c0e]{margin-top:30px}.mb-30px[data-v-3d433c0e]{margin-bottom:30px}\n";
+var _style_0 = ".dropZone[data-v-e507609c]{overflow-wrap:break-word;padding:.5rem;max-width:calc(100vw - .5rem);max-height:calc(100vh - .5rem)}.dropZone .dropZoneFile[data-v-e507609c]{position:absolute;width:0px;height:0px;overflow:hidden;clip:rect(1px,1px,1px,1px)}.dropZone .dropZoneWrap[data-v-e507609c]{border:3px dashed currentColor;box-shadow:-1px 5px 25px -9px #0003}.dropZone .dropZoneWrap .dropZoneLabel[data-v-e507609c]{display:grid;place-items:center;width:100%;height:100%;padding-top:1.5rem;padding-bottom:2.5rem;cursor:pointer}.dropZone .dropZoneWrap .dropZoneImage[data-v-e507609c]{pointer-events:none;color:currentColor}.dropZone .dropZoneWrap .dropZoneBody[data-v-e507609c]{text-align:center}.dropZone .dropZoneWrap .dropZoneBody p[data-v-e507609c],.dropZone .dropZoneWrap .dropZoneBody span[data-v-e507609c]{margin:0}.dropZone .dropZoneWrap .dropZoneBody .dropZoneTitle[data-v-e507609c]{color:#333}.dropZone .dropZoneWrap .dropZoneBody .dropZoneText[data-v-e507609c]{color:#737373}.dropZone .dropZoneWrap .dropZoneBody .button[data-v-e507609c]{background-color:transparent;display:inline-block;text-align:center;vertical-align:middle;pointer-events:none;font-size:1rem;line-height:1.5rem;font-weight:400;user-select:none;margin-top:1.25rem;border-radius:.35rem;color:currentColor;border:2px solid currentColor;padding:.375rem .75rem}.mt-30px[data-v-e507609c]{margin-top:30px}.mb-30px[data-v-e507609c]{margin-bottom:30px}\n";
 var _export_sfc = (sfc, props) => {
   const target = sfc.__vccOpts || sfc;
   for (const [key, val] of props) {
@@ -4700,7 +4700,7 @@ var _export_sfc = (sfc, props) => {
 const _hoisted_1 = { class: "dropZone" };
 const _hoisted_2 = ["accept"];
 const _hoisted_3 = ["onDrop"];
-const _hoisted_4 = /* @__PURE__ */ createStaticVNode('<label for="dropZoneFile" class="dropZoneLabel" data-v-3d433c0e><svg width="10em" height="10em" viewBox="0 0 16 12" class="dropZoneImage" fill="currentColor" xmlns="http://www.w3.org/2000/svg" data-v-3d433c0e><path fill-rule="evenodd" d="m 8.0274054,0.49415269 a 5.53,5.53 0 0 0 -3.594,1.34200001 c -0.766,0.66 -1.321,1.52 -1.464,2.383 -1.676,0.37 -2.94199993,1.83 -2.94199993,3.593 0,2.048 1.70799993,3.6820003 3.78099993,3.6820003 h 8.9059996 c 1.815,0 3.313,-1.43 3.313,-3.2270003 0,-1.636 -1.242,-2.969 -2.834,-3.194 -0.243,-2.58 -2.476,-4.57900001 -5.1659996,-4.57900001 z m 2.3539996,5.14600001 -1.9999996,-2 a 0.5,0.5 0 0 0 -0.708,0 l -2,2 a 0.5006316,0.5006316 0 1 0 0.708,0.708 l 1.146,-1.147 v 3.793 a 0.5,0.5 0 0 0 1,0 v -3.793 l 1.146,1.147 a 0.5006316,0.5006316 0 0 0 0.7079996,-0.708 z" data-v-3d433c0e></path></svg><div class="dropZoneBody" data-v-3d433c0e><p data-v-3d433c0e><strong class="dropZoneTitle" data-v-3d433c0e>Drag and drop files to upload</strong></p><p data-v-3d433c0e><small class="dropZoneText" data-v-3d433c0e>Your files will be added automatically</small></p><button type="button" class="button" data-v-3d433c0e>or select files</button></div></label>', 1);
+const _hoisted_4 = /* @__PURE__ */ createStaticVNode('<label for="dropZoneFile" class="dropZoneLabel" data-v-e507609c><svg width="10em" height="10em" viewBox="0 0 16 12" class="dropZoneImage" fill="currentColor" xmlns="http://www.w3.org/2000/svg" data-v-e507609c><path fill-rule="evenodd" d="m 8.0274054,0.49415269 a 5.53,5.53 0 0 0 -3.594,1.34200001 c -0.766,0.66 -1.321,1.52 -1.464,2.383 -1.676,0.37 -2.94199993,1.83 -2.94199993,3.593 0,2.048 1.70799993,3.6820003 3.78099993,3.6820003 h 8.9059996 c 1.815,0 3.313,-1.43 3.313,-3.2270003 0,-1.636 -1.242,-2.969 -2.834,-3.194 -0.243,-2.58 -2.476,-4.57900001 -5.1659996,-4.57900001 z m 2.3539996,5.14600001 -1.9999996,-2 a 0.5,0.5 0 0 0 -0.708,0 l -2,2 a 0.5006316,0.5006316 0 1 0 0.708,0.708 l 1.146,-1.147 v 3.793 a 0.5,0.5 0 0 0 1,0 v -3.793 l 1.146,1.147 a 0.5006316,0.5006316 0 0 0 0.7079996,-0.708 z" data-v-e507609c></path></svg><div class="dropZoneBody" data-v-e507609c><p data-v-e507609c><strong class="dropZoneTitle" data-v-e507609c>Drag and drop files to upload</strong></p><p data-v-e507609c><small class="dropZoneText" data-v-e507609c>Your files will be added automatically</small></p><button type="button" class="button" data-v-e507609c>or select files</button></div></label>', 1);
 const _hoisted_5 = [
   _hoisted_4
 ];
@@ -4712,13 +4712,22 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
   },
   emits: ["update:modelValue"],
   setup(__props, { emit }) {
+    const props = __props;
     const files = ref([]);
     const dropZoneFile = ref(null);
     const handleFiles = (e) => {
       const inputValue = e.target.files || e.dataTransfer.files || dropZoneFile.value.files;
       for (let i = 0; i < inputValue.length; i++) {
         const fileItem = inputValue[i];
-        files.value.push(fileItem);
+        if (props.base64) {
+          const reader = new FileReader();
+          reader.onload = () => {
+            files.value.unshift(reader.result);
+          };
+          reader.readAsDataURL(fileItem);
+        } else {
+          files.value.unshift(fileItem);
+        }
       }
       emit("update:modelValue", files.value);
     };
@@ -4746,7 +4755,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var VueDropZone = /* @__PURE__ */ _export_sfc(_sfc_main, [["styles", [_style_0]], ["__scopeId", "data-v-3d433c0e"]]);
+var VueDropZone = /* @__PURE__ */ _export_sfc(_sfc_main, [["styles", [_style_0]], ["__scopeId", "data-v-e507609c"]]);
 const DropZone = defineCustomElement(VueDropZone);
 function useTedirDropZone() {
   customElements.define("drop-zone", DropZone);

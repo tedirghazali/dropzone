@@ -24,7 +24,16 @@ const handleFiles = (e: any) => {
   const inputValue = e.target.files || e.dataTransfer.files || dropZoneFile.value.files
   for(let i = 0; i < inputValue.length; i++) {
     const fileItem = inputValue[i]
-    files.value.push(fileItem)
+    
+    if(props.base64) {
+      const reader = new FileReader()
+      reader.onload = () => {
+        files.value.unshift(reader.result)
+      }
+      reader.readAsDataURL(fileItem)
+    } else {
+      files.value.unshift(fileItem)
+    }
   }
   emit('update:modelValue', files.value)
 }
