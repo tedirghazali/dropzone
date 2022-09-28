@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { uniqid } from 'alga-js/string'
 
 const props = withDefaults(defineProps<{
   //@ts-ignore
@@ -19,6 +20,7 @@ const emit = defineEmits<{
 
 const files = ref<any[]>([])
 const dropZoneFile = ref<any>(null)
+const uniqueId = uniqid()
 
 const handleFiles = (e: any) => {
   const inputValue = e.target.files || e.dataTransfer.files || dropZoneFile.value.files
@@ -28,7 +30,8 @@ const handleFiles = (e: any) => {
     if(props.base64) {
       const reader = new FileReader()
       reader.onload = () => {
-        files.value.unshift(reader.result)
+        fileItem.base64 = reader.result
+        files.value.unshift(fileItem)
       }
       reader.readAsDataURL(fileItem)
     } else {
@@ -41,9 +44,9 @@ const handleFiles = (e: any) => {
 
 <template>
   <div class="dropZone">
-    <input type="file" id="dropZoneFile" class="dropZoneFile" ref="dropZoneFile" @change="handleFiles" multiple :accept="accept">
+    <input type="file" :id="'dropZoneFile-'+uniqueId" class="dropZoneFile" ref="dropZoneFile" @change="handleFiles" multiple :accept="accept">
     <div class="dropZoneWrap" @dragenter.prevent="" @dragover.prevent="" @drop.prevent="handleFiles">
-      <label for="dropZoneFile" class="dropZoneLabel">
+      <label :for="'dropZoneFile-'+uniqueId" class="dropZoneLabel">
         <svg width="10em" height="10em" viewBox="0 0 16 12" class="dropZoneImage" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path
               fill-rule="evenodd"
@@ -52,7 +55,7 @@ const handleFiles = (e: any) => {
         </svg>
         <div class="dropZoneBody">
           <p>
-            <strong class="dropZoneTitle">Drag and drop files to upload</strong>
+            <strong class="dropZoneTitle fg-inherit">Drag and drop files to upload</strong>
           </p>
           <p>
             <small class="dropZoneText">Your files will be added automatically</small>
@@ -66,4 +69,6 @@ const handleFiles = (e: any) => {
 
 <style scoped>
 @use dropZone;
+
+@ref fg-inherit;
 </style>

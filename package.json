@@ -1,20 +1,20 @@
 {
   "name": "tedir-dropzone",
-  "version": "0.0.1-wood-0",
+  "version": "0.0.1-wood-1",
   "description": "Tedir DropZone is a file upload components for Vue 3 & Web Components",
   "main": "dist/vue/tedir-dropzone-vue.umd.js",
   "module": "dist/vue/tedir-dropzone-vue.es.js",
   "unpkg": "dist/vue/tedir-dropzone-vue.umd.js",
   "exports": {
     ".": {
-      "import": "dist/vue/tedir-dropzone-vue.es.js",
-      "require": "dist/vue/tedir-dropzone-vue.umd.js"
+      "import": "./dist/vue/tedir-dropzone-vue.es.js",
+      "require": "./dist/vue/tedir-dropzone-vue.umd.js"
     },
     "./web": {
-      "import": "dist/web/tedir-dropzone-web.es.js",
-      "require": "dist/web/tedir-dropzone-web.umd.js"
+      "import": "./dist/web/tedir-dropzone-web.es.js",
+      "require": "./dist/web/tedir-dropzone-web.umd.js"
     },
-    "./css": "dist/vue/style.css"
+    "./css": "./dist/vue/style.css"
   },
   "scripts": {
     "dev-vue": "vite --config vite-vue-config.ts",
@@ -23,7 +23,7 @@
     "preview-vue": "vite preview --config vite-vue-config.ts"
   },
   "files": [
-    "src/**/*.js",
+    "src/alga/*.alga",
     "dist"
   ],
   "repository": {
@@ -42,13 +42,14 @@
   },
   "homepage": "https://github.com/tedirghazali/dropzone#readme",
   "dependencies": {
-    "alga-css": "^1.0.0-stone-8",
-    "vue": "^3.2.25"
+    "vue": "^3.2.39"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^2.3.3",
-    "typescript": "^4.5.4",
-    "vite": "^2.9.9",
-    "vue-tsc": "^0.34.7"
+    "@vitejs/plugin-vue": "^3.1.0",
+    "alga-css": "^1.0.0-ruby-2",
+    "alga-js": "^0.1.0-stone-7",
+    "typescript": "^4.6.4",
+    "vite": "^3.1.3",
+    "vue-tsc": "^0.40.13"
   }
 }
