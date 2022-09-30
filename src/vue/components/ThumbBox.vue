@@ -45,7 +45,7 @@ const handleFiles = (e: any) => {
 <template>
   <div class="dropZone tedirThumbnail">
     <input type="file" :id="'dropZoneThumbnail-'+uniqueId" class="dropZoneFile" ref="dropZoneFile" @change="handleFiles" accept="image/*">
-    <div class="dropZoneWrap" :class="thumbnail?.base64 ? 'tedirThumbnailHidden' : ''" @dragenter.prevent="" @dragover.prevent="" @drop.prevent="handleFiles">
+    <div class="dropZoneWrap" @dragenter.prevent="" @dragover.prevent="" @drop.prevent="handleFiles">
       <label :for="'dropZoneThumbnail-'+uniqueId" class="dropZoneLabel" :class="thumbnail?.base64 ? 'tedirThumbnailLabel' : ''">
         <template v-if="thumbnail?.base64">
           <img :src="thumbnail.base64" class="tedirThumbnailImage" :alt="thumbnail.name" />

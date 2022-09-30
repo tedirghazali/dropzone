@@ -5,20 +5,19 @@
 @alga {refs.name} {
   .{refs.name} {
   
-    &Hidden {
-      ref: bd-none;
-    }
-    
-    &Label {
-      ref: pt-0px pb-0px;
+    .dropZoneWrap {
+      
+      label.{refs.name}Label {
+        ref: pt-0px pb-0px;
+      }
+      
+      .dropZoneBody p .dropZoneTitle {
+        ref: fg-inherit;
+      }
     }
     
     &Image {
       ref: objectFit-fill w-100pct;
-    }
-    
-    .dropZoneWrap .dropZoneBody p .dropZoneTitle {
-      ref: fg-inherit;
     }
   }
 }
