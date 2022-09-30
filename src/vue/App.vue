@@ -23,8 +23,3 @@ watch(thumbnail, () => {
   </div>
   <!--<div v-for="(file, index) in files" :key="index">{{ JSON.stringify(file) }}</div>-->
 </template>
-
-<style>
-@use base;
-@use container;
-</style>

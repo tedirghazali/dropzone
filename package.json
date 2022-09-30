@@ -1,6 +1,6 @@
 {
   "name": "tedir-dropzone",
-  "version": "0.0.1-wood-1",
+  "version": "0.0.1-wood-2",
   "description": "Tedir DropZone is a file upload components for Vue 3 & Web Components",
   "main": "dist/vue/tedir-dropzone-vue.umd.js",
   "module": "dist/vue/tedir-dropzone-vue.es.js",
@@ -24,6 +24,7 @@
   },
   "files": [
     "src/alga/*.alga",
+    "package.alga",
     "dist"
   ],
   "repository": {

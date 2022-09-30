@@ -1,0 +1,24 @@
+@define refs {
+  name: tedirThumbnail;
+}
+
+@alga {refs.name} {
+  .{refs.name} {
+  
+    &Hidden {
+      ref: bd-none;
+    }
+    
+    &Label {
+      ref: pt-0px pb-0px;
+    }
+    
+    &Image {
+      ref: objectFit-fill w-100pct;
+    }
+    
+    .dropZoneWrap .dropZoneBody p .dropZoneTitle {
+      ref: fg-inherit;
+    }
+  }
+}
