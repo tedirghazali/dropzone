@@ -5,8 +5,8 @@ import { uniqid } from 'alga-js/string'
 const props = withDefaults(defineProps<{
   //@ts-ignore
   modelValue?: any,
-  iconSize: string,
-  showButton: boolean
+  iconSize?: string,
+  showButton?: boolean
 }>(), {
   //@ts-ignore
   modelValue: {},
@@ -22,10 +22,6 @@ const thumbnail = ref<any>(props.modelValue || {})
 const dropZoneFile = ref<any>(null)
 const uniqueId = uniqid()
 
-watch(() => props.modelValue, () => {
-  thumbnail.value = props.modelValue
-})
-
 const handleFiles = (e: any) => {
   const inputValue = e.target.files || e.dataTransfer.files || dropZoneFile.value.files
   for(let i = 0; i < inputValue.length; i++) {
@@ -35,10 +31,10 @@ const handleFiles = (e: any) => {
     reader.onload = () => {
       fileItem.base64 = reader.result
       thumbnail.value = fileItem
+      emit('update:modelValue', fileItem)
     }
     reader.readAsDataURL(fileItem)
   }
-  emit('update:modelValue', thumbnail.value)
 }
 </script>
 
