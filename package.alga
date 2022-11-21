@@ -1,3 +1,4 @@
 @import "./src/alga/tedirThumbnail.alga";
+@import "./src/alga/tedirAttach.alga";
 
-@export tedirThumbnail;
+@export tedirThumbnail, tedirAttach;

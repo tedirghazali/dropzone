@@ -6,21 +6,36 @@ const props = withDefaults(defineProps<{
   //@ts-ignore
   modelValue?: any,
   iconSize?: string,
-  showButton?: boolean
+  showButton?: boolean,
+  type?: string
 }>(), {
   //@ts-ignore
-  modelValue: {},
+  modelValue: '',
   iconSize: '10em',
-  showButton: true
+  showButton: true,
+  type: 'both'
 })
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: any): void
+  (e: 'update:modelValue', value: any | string): void
 }>()
 
-const thumbnail = ref<any>(props.modelValue || {})
+const thumbnail = ref<string>('')
 const dropZoneFile = ref<any>(null)
 const uniqueId = uniqid()
+
+if(typeof props.modelValue === 'string') {
+  thumbnail.value = props.modelValue
+} else if(typeof props.modelValue === 'object' && props.modelValue?.base64) {
+  thumbnail.value = props.modelValue.base64
+} else if(typeof props.modelValue === 'object' && props.modelValue?.name) {
+  const readerFile = new FileReader();
+  readerFile.onload = function () {
+    const base64File = readerFile.result
+    thumbnail.value = String(base64File)
+  }
+  readerFile.readAsDataURL(props.modelValue)
+}
 
 const handleFiles = (e: any) => {
   const inputValue = e.target.files || e.dataTransfer.files || dropZoneFile.value.files
@@ -29,9 +44,18 @@ const handleFiles = (e: any) => {
     
     const reader = new FileReader()
     reader.onload = () => {
-      fileItem.base64 = reader.result
-      thumbnail.value = fileItem
-      emit('update:modelValue', fileItem)
+      const base64 = reader.result
+      if(props.type === 'base64') {
+        thumbnail.value = String(base64)
+        emit('update:modelValue', base64)
+      } else if(props.type === 'file') {
+        thumbnail.value = String(base64)
+        emit('update:modelValue', fileItem)
+      } else {
+        fileItem.base64 = base64
+        thumbnail.value = String(fileItem.base64)
+        emit('update:modelValue', fileItem)
+      }
     }
     reader.readAsDataURL(fileItem)
   }
@@ -42,9 +66,9 @@ const handleFiles = (e: any) => {
   <div class="dropZone tedirThumbnail">
     <input type="file" :id="'dropZoneThumbnail-'+uniqueId" class="dropZoneFile" ref="dropZoneFile" @change="handleFiles" accept="image/*">
     <div class="dropZoneWrap" @dragenter.prevent="" @dragover.prevent="" @drop.prevent="handleFiles">
-      <label :for="'dropZoneThumbnail-'+uniqueId" class="dropZoneLabel" :class="thumbnail?.base64 ? 'tedirThumbnailLabel' : ''">
-        <template v-if="thumbnail?.base64">
-          <img :src="thumbnail.base64" class="tedirThumbnailImage" :alt="thumbnail.name" />
+      <label :for="'dropZoneThumbnail-'+uniqueId" class="dropZoneLabel" :class="thumbnail ? 'tedirThumbnailLabel' : ''">
+        <template v-if="thumbnail">
+          <img :src="thumbnail" class="tedirThumbnailImage" alt="Thumbnail" />
         </template>
         <template v-else>
           <svg xmlns="http://www.w3.org/2000/svg" :width="iconSize" :height="iconSize" fill="currentColor" class="dropZoneImage my-10px" viewBox="0 0 16 16">
@@ -68,6 +92,6 @@ const handleFiles = (e: any) => {
 </template>
 
 <style scoped>
-@use tedirThumbnail;
 @use dropZone;
+@use tedirThumbnail;
 </style>

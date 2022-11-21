@@ -1,0 +1,17 @@
+@define refs {
+  name: tedirAttach;
+}
+
+@alga {refs.name} {
+  .{refs.name} {
+    ref: padding-0px maxWidth-none maxHeight-none display-inlineBlock;
+  
+    .dropZoneWrap {
+      ref: border-none boxShadow-none;
+      
+      label.{refs.name}Label {
+        ref: display-inlineGrid placeItems-normal padding-0px;
+      }
+    }
+  }
+}
