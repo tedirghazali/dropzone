@@ -6,19 +6,22 @@ const props = withDefaults(defineProps<{
   //@ts-ignore
   modelValue?: any[],
   accept?: string,
-  base64?: boolean
+  base64?: boolean,
+  uniqid?: boolean
 }>(), {
   //@ts-ignore
   modelValue: [],
   accept: '*',
-  base64: false
+  base64: false,
+  uniqid: false
 })
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: any[]): void
+  (e: 'update:modelValue', value: any[]): void,
+  (e: 'handler', value: any[]): void
 }>()
 
-const files = ref<any[]>([])
+const files = ref<any[]>(props.modelValue || [])
 const dropZoneFile = ref<any>(null)
 const uniqueId = uniqid()
 
@@ -27,18 +30,22 @@ const handleFiles = (e: any) => {
   for(let i = 0; i < inputValue.length; i++) {
     const fileItem = inputValue[i]
     
+    if(props.uniqid) {
+      fileItem.uniqid = uniqid()
+    }
+    
     if(props.base64) {
       const reader = new FileReader()
       reader.onload = () => {
         fileItem.base64 = reader.result
-        files.value.unshift(fileItem)
       }
       reader.readAsDataURL(fileItem)
-    } else {
-      files.value.unshift(fileItem)
     }
+    
+    files.value.unshift(fileItem)
   }
   emit('update:modelValue', files.value)
+  emit('handler', files.value)
 }
 </script>
 

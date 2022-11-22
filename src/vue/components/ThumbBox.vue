@@ -17,7 +17,8 @@ const props = withDefaults(defineProps<{
 })
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: any | string): void
+  (e: 'update:modelValue', value: any | string): void,
+  (e: 'handler', value: any | string): void
 }>()
 
 const thumbnail = ref<string>('')
@@ -48,13 +49,16 @@ const handleFiles = (e: any) => {
       if(props.type === 'base64') {
         thumbnail.value = String(base64)
         emit('update:modelValue', base64)
+        emit('handler', base64)
       } else if(props.type === 'file') {
         thumbnail.value = String(base64)
         emit('update:modelValue', fileItem)
+        emit('handler', fileItem)
       } else {
         fileItem.base64 = base64
         thumbnail.value = String(fileItem.base64)
         emit('update:modelValue', fileItem)
+        emit('handler', fileItem)
       }
     }
     reader.readAsDataURL(fileItem)
