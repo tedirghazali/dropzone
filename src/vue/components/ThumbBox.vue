@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref, watch, onMounted } from 'vue'
 import { uniqid } from 'alga-js/string'
 
 const props = withDefaults(defineProps<{
@@ -25,18 +25,22 @@ const thumbnail = ref<string>('')
 const dropZoneFile = ref<any>(null)
 const uniqueId = uniqid()
 
-if(typeof props.modelValue === 'string') {
-  thumbnail.value = props.modelValue
-} else if(typeof props.modelValue === 'object' && props.modelValue?.base64) {
-  thumbnail.value = props.modelValue.base64
-} else if(typeof props.modelValue === 'object' && props.modelValue?.name) {
-  const readerFile = new FileReader();
-  readerFile.onload = function () {
-    const base64File = readerFile.result
-    thumbnail.value = String(base64File)
+const loadFile = () => {
+  if(typeof props.modelValue === 'string') {
+    thumbnail.value = props.modelValue
+  } else if(typeof props.modelValue === 'object' && props.modelValue?.base64) {
+    thumbnail.value = props.modelValue.base64
+  } else if(typeof props.modelValue === 'object' && props.modelValue?.name) {
+    const readerFile = new FileReader();
+    readerFile.onload = function () {
+      const base64File = readerFile.result
+      thumbnail.value = String(base64File)
+    }
+    readerFile.readAsDataURL(props.modelValue)
   }
-  readerFile.readAsDataURL(props.modelValue)
 }
+onMounted(loadFile)
+watch(() => props.modelValue, loadFile)
 
 const handleFiles = (e: any) => {
   const inputValue = e.target.files || e.dataTransfer.files || dropZoneFile.value.files
